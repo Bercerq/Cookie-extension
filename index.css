@@ -1,0 +1,170 @@
+body {
+  font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.883);
+  font-weight: 500;
+  width: 600px;
+}
+button {
+  border: none;
+  background: transparent;
+  color: red;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: cursive;
+}
+
+button:hover {
+  color: darkred;
+}
+
+#table {
+  margin-bottom: 180px;
+}
+
+.tableTitle {
+  display: flex;
+  justify-content: start;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  margin: 25px auto;
+  width: 89%;
+  color: white;
+}
+
+.tableTitle > span:not(:last-child) {
+  width: 35%;
+}
+
+.tableTitle > a {
+  text-decoration: none;
+  font-size: 30px;
+  margin-right: 10px;
+  width: 30px;
+  text-align: center;
+}
+
+.createButton {
+  border-radius: 4px;
+  background-color: rgba(138, 180, 248);
+  width: 100%;
+  color: white;
+  font-weight: 600;
+  padding: 8px 0;
+  font-size: 17px;
+  border: 1px solid transparent;
+  font-family: sans-serif;
+}
+
+.createButton:hover {
+  color: white;
+}
+input {
+  margin: 7px 0;
+  background: none;
+  border: none;
+  border-bottom: 2px solid lightgrey;
+  font-size: 18px;
+  outline: none;
+  width: 158px;
+  color: white;
+}
+
+input[type="datetime-local"] {
+  height: 23px;
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24"><path fill="%23bbbbbb" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>');
+}
+
+input:focus {
+  border-bottom: 2px solid rgb(153, 151, 151);
+}
+
+.tibleItem {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px auto;
+  align-items: center;
+  cursor: pointer;
+  width: 93%;
+}
+
+.cookieName {
+  padding-left: 7px;
+  display: flex;
+  width: 160px;
+  font-size: 14px;
+  resize: none;
+  height: 40px;
+  color: white;
+  background-color: rgba(87, 87, 87, 0.349);
+  border: none;
+}
+.cookieValue {
+  padding-left: 7px;
+  display: flex;
+  width: 160px;
+  font-size: 14px;
+  resize: none;
+  height: 40px;
+  color: white;
+  background-color: rgba(87, 87, 87, 0.349);
+  border: none;
+}
+
+.cookieLiveTime {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.404);
+  width: 115px;
+}
+
+.formContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.formItem {
+  display: flex;
+  flex-direction: column;
+  height: 80px;
+}
+
+.formItem:not(:last-child) {
+  margin-right: 25px;
+}
+
+.formItem label {
+  color: rgba(255, 255, 255, 0.404);
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.noContent {
+  text-align: center;
+  margin: 20px;
+  padding: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+.createCookie {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: rgb(71, 71, 71);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  margin-left: -8px;
+}
+.textContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 63%;
+}
+.buttonBox {
+  width: 88%;
+  margin: 0 auto 20px auto;
+  margin-bottom: 20px;
+}

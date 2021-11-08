@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Document</title>
+    <style type="text/css">
+      ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+      ::-webkit-scrollbar-button {
+        width: 0px;
+        height: 0px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #363535;
+        border: 0px none #ffffff;
+        border-radius: 50px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #4f4f4f;
+      }
+      ::-webkit-scrollbar-thumb:active {
+        background: #858585;
+      }
+      ::-webkit-scrollbar-track {
+        background: #666666;
+        border: 0px none #ffffff;
+        border-radius: 50px;
+      }
+      ::-webkit-scrollbar-track:hover {
+        background: #666666;
+      }
+      ::-webkit-scrollbar-track:active {
+        background: #333333;
+      }
+      ::-webkit-scrollbar-corner {
+        background: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tableTitle">
+      <span>Name</span>
+      <span>Value</span>
+      <span>Live time </span>
+    </div>
+    <div id="table"></div>
+    <div class="createCookie">
+      <div class="formContainer">
+        <div class="formItem">
+          <label for="nameInput">Name</label>
+          <input type="text" name="name" id="nameInput" />
+        </div>
+        <div class="formItem">
+          <label for="valueInput">Value</label>
+          <input type="text" name="value" id="valueInput" />
+        </div>
+        <div class="formItem">
+          <label for="valueDate">Live time</label>
+          <input type="datetime-local" name="date" id="valueDate" />
+        </div>
+      </div>
+      <div class="buttonBox">
+        <button class="createButton" id="createButton">Create</button>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
