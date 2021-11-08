@@ -1,15 +1,14 @@
 table = document.getElementById('table');
-const buttonList = document.getElementsByClassName('deleteButton')
-const cookieValue = document.getElementsByClassName('cookieValue')
-const cookieName = document.getElementsByClassName('cookieName')
-const nameInput = document.getElementById('nameInput')
-const valueInput = document.getElementById('valueInput')
-const valueDate = document.getElementById('valueDate')
-const createButton = document.getElementById('createButton')
+const ids = {
+  nameInput: 'nameInput',
+  valueInput: 'valueInput',
+  valueDate: 'valueDate',
+  createButton:'createButton',
+}
 
-let newCookieName;
-let newCookieValue;
-let newCookieLive;
+
+
+
 
 // change cookie domain 
 const replaceUrl = (url) =>{
@@ -43,10 +42,11 @@ const drawHTML = (elem, cookies) => {
 }
 
 const updateCookie = (cookieData) =>{
-  console.log(cookieData);
-  chrome.cookies.set({
-    ...cookieData
-  })
+  chrome.cookies.set(cookieData)
+}
+
+const remomeCookie = (cookieData) =>{
+  chrome.cookies.remove(cookieData)
 }
 
 // Cookies actions 
@@ -56,21 +56,23 @@ chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
     }, function (cookies) {
       drawHTML(table,cookies)
       // Delete 
+      const buttonList = document.getElementsByClassName('deleteButton')
       Array.from(buttonList).forEach((element)=>{
         element.addEventListener("click", (e) => {
           const {name, storeId, secure, domain, path} = cookies[e.target.value]
           const protocol = secure ? "https:" : "http:";
           const cookieUrl = `${protocol}//${domain}${path}`;
-         
-          chrome.cookies.remove({
+          remomeCookie({
             url: cookieUrl,
             name,
             storeId
           })
+          
           window.location.reload()
         });      
       })    
       // Edit value
+      const cookieValue = document.getElementsByClassName('cookieValue')
       Array.from(cookieValue).forEach((element)=>{
         
         element.addEventListener("change", (e) => {
@@ -95,6 +97,7 @@ chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
       })    
 
       // Edit name 
+      const cookieName = document.getElementsByClassName('cookieName')
       Array.from(cookieName).forEach((element)=>{
         
         element.addEventListener("change", (e) => {
@@ -118,19 +121,22 @@ chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
         });      
       })    
       //Create cookie 
-      
+      let newCookieName;
+      let newCookieValue;
+      let newCookieLive;
 
-      nameInput.addEventListener("change", (e) => {
+
+     document.getElementById(ids.nameInput).addEventListener("change", (e) => {
         newCookieName = e.target.value;
       });      
-      valueInput.addEventListener("change", (e) => {
+      document.getElementById(ids.valueInput).addEventListener("change", (e) => {
         newCookieValue = e.target.value;
       });      
-      valueDate.addEventListener("change", (e) => {
+      document.getElementById(ids.valueDate).addEventListener("change", (e) => {
         newCookieLive = e.target.value;
         console.log(new Date(newCookieLive).getTime());
       });    
-      createButton.addEventListener('click',()=>{
+      document.getElementById(ids.createButton).addEventListener('click',()=>{
 
         updateCookie({
           name: newCookieName,
